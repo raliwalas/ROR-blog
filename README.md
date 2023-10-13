@@ -3,10 +3,8 @@
 Following Tutorial from GoRails YouTube tutorials
 
 
-* Notes for myself:
+* Notes for myself for later:
 - may want to download SQLite Connection
-
-
 
 
 
