@@ -2,6 +2,14 @@
 
 Following Tutorial from GoRails YouTube tutorials
 
+
+* Notes for myself:
+- may want to download SQLite Connection
+
+
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
@@ -24,5 +32,3 @@ rails 7.0.4.3
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
