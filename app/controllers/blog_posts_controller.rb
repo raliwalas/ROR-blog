@@ -7,6 +7,13 @@ class BlogPostsController < ApplicationController
     def index
         # instance variable to ensure we share with index.html.erb to render
         @blog_posts = BlogPost.all
-    end        
+    end
+
+    def show
+        @blog_post = BlogPost.find(params[:id])
+        # now we have to make a new file in view
+    rescue ActiveRecord::RecordNotFound
+        redirect_to root_path
+    end
 
 end
