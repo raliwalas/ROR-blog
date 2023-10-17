@@ -5,6 +5,8 @@
     # and appropriate responses
 class BlogPostsController < ApplicationController 
     def index
+        # instance variable to ensure we share with index.html.erb to render
+        @blog_posts = BlogPost.all
     end        
 
 end
