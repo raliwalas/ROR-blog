@@ -16,4 +16,13 @@ class BlogPostsController < ApplicationController
         redirect_to root_path
     end
 
+    def new 
+        #create new blog post in memory
+        @blog_post = BlogPost.new
+    end
+
+    # will finish this in part 7
+    def create
+    end
+
 end

@@ -3,6 +3,8 @@
 <% @blog_posts.each do |blog_post| %>
     <div>
         <%# ruby can figure out the path on it's own cause of the object%>
+        <%# remember the = is for .erb formatting%>
+
         <h2><%= link_to blog_post.title, blog_post%></h2>
         <%= blog_post.body %>
     </div>
