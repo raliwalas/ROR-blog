@@ -21,8 +21,21 @@ class BlogPostsController < ApplicationController
         @blog_post = BlogPost.new
     end
 
-    # will finish this in part 7
+    # create and save the new blog post
     def create
+        @blog_post = BlogPost.new(blog_post_params)
+        if @blog_post.save
+            redirect_to @blog_post
+        else
+            # resuing the new.html.erb instead of making a create.html.erb
+            render :new
+    end
+
+    # want private to ensure security
+    private
+
+    def blog_post_params
+        params.require(:blog_post).permit(:title, :body)
     end
 
 end
