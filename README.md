@@ -1,10 +1,7 @@
 # README
 
-Following Tutorial from GoRails YouTube tutorials
+Following How to Build a Blog Tutorial from GoRails YouTube tutorials
 
-
-* Notes for myself for later:
-- may want to download SQLite Connection
 
 
 
