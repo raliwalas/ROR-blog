@@ -29,6 +29,7 @@ class BlogPostsController < ApplicationController
         else
             # resuing the new.html.erb instead of making a create.html.erb
             render :new
+        end
     end
 
     # want private to ensure security
