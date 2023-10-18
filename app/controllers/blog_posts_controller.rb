@@ -27,9 +27,9 @@ class BlogPostsController < ApplicationController
         if @blog_post.save
             redirect_to @blog_post
         else
-            # resuing the new.html.erb instead of making a create.html.erb
-            render :new
-        end
+            # rendering the new.html.erb instead of making a create.html.erb
+            # unprocessable_entity gives 422 error
+            render :new, status: :unprocessable_entity
     end
 
     # want private to ensure security
