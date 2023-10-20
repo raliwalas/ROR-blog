@@ -33,6 +33,21 @@ class BlogPostsController < ApplicationController
         end
     end
 
+    def edit
+        # if you don't have this line, you get nil error
+        @blog_post = BlogPost.find(params[:id])
+    end
+
+    def update
+        # find again, instead of creating brand new post
+        @blog_post = BlogPost.find(params[:id])
+        if @blog_post.update(blog_post_params) # use same title and body params
+            redirect_to @blog_post
+        else 
+            render :edit, status: :unprocessable_entity
+        end
+    end
+
     # want private to ensure security
     private
 

@@ -1,0 +1,28 @@
+<%# underscore indicates that this is a partion - portion of a page%>
+
+<%= form_with model: @blog_post do |form| %>
+    <%# handling cases where the new blog post is filled out incorrectly%>
+    <%# good to have form.object instead of form.blog post in case there are name changes%>
+        <%# you won't have to modify everything in the if statement%>
+    <% if form.object.errors.any? %>
+        <div>            
+            <% form.object.errors.full_messages.each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+            
+        </div> 
+    <% end %>
+
+    <%# the new blog post 'form'%>
+    <div>
+        <%= form.label :title %>
+        <%= form.text_field :title %> <%# single string%>
+    </div>
+
+    <div>
+        <%= form.label :body %>
+        <%= form.text_area :body %> <%# multi line strings%>
+    </div>
+
+    <%= form.button %>
+<% end %>
