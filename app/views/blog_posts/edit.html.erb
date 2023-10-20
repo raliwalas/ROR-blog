@@ -2,3 +2,7 @@
 
 <%# rendering the partial again like in new.html.erb%>
 <%= render partial: "form", locals: {blog_post: @blog_post} %>
+
+<%# adding delete button in the edit page
+    keeping the path ambigious again - rails figures it out %>
+<%= button_to "Delete", @blog_post, method: :delete %>

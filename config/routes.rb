@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   # patch request
   patch "/blog_posts/:id", to: "blog_posts#update"
 
+  # delete - no need for url cause they all have the same url
+  # just have different http requests types
+  delete "/blog_posts/:id", to: "blog_posts#destroy"
 
   # route for edit page
   # can be before or after the id show blog_posts

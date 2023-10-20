@@ -48,6 +48,14 @@ class BlogPostsController < ApplicationController
         end
     end
 
+    # don't need if/else bc we assume that destroy is successful
+    # then redirect to root path cause blog post doesn't exist anymore
+    def destroy
+        @blog_post = BlogPost.find(params[:id])
+        @blog_post.destroy
+        redirect_to root_path
+    end
+
     # want private to ensure security
     private
 
