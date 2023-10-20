@@ -1,19 +1,23 @@
-# without this file, you will get a routing error
-
 # inherit from application controller aka action controller
-# gives us the info we need to process HTTP requests like parameters
+# the controller gives us the info we need to process HTTP requests like parameters
     # and appropriate responses
 class BlogPostsController < ApplicationController 
+
+=begin refactoring 1/2
+    - set_blog_post allows us reduce the num of lines in code
+    - before: the methods show, edit, update, etc all had the same line to set blog action
+    - now: line 11 only and the set_blog_action method
+    - could also define before action with except: instead of only
+=end 
+    before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
+
     def index
         # instance variable to ensure we share with index.html.erb to render
         @blog_posts = BlogPost.all
     end
 
     def show
-        @blog_post = BlogPost.find(params[:id])
-        # now we have to make a new file in view
-    rescue ActiveRecord::RecordNotFound
-        redirect_to root_path
+        # rescue that used to be here was moved to set_blog_post
     end
 
     def new 
@@ -34,13 +38,11 @@ class BlogPostsController < ApplicationController
     end
 
     def edit
-        # if you don't have this line, you get nil error
-        @blog_post = BlogPost.find(params[:id])
+        # calls on before_action
     end
 
     def update
-        # find again, instead of creating brand new post
-        @blog_post = BlogPost.find(params[:id])
+        # find the id again, instead of creating brand new post
         if @blog_post.update(blog_post_params) # use same title and body params
             redirect_to @blog_post
         else 
@@ -51,7 +53,6 @@ class BlogPostsController < ApplicationController
     # don't need if/else bc we assume that destroy is successful
     # then redirect to root path cause blog post doesn't exist anymore
     def destroy
-        @blog_post = BlogPost.find(params[:id])
         @blog_post.destroy
         redirect_to root_path
     end
@@ -61,6 +62,15 @@ class BlogPostsController < ApplicationController
 
     def blog_post_params
         params.require(:blog_post).permit(:title, :body)
+    end
+
+
+    # refactoring 2/2
+    def set_blog_post
+        @blog_post = BlogPost.find(params[:id])
+    rescue ActiveRecord::RecordNotFound # used to be in show, 
+        #but it's optional depending on application
+        redirect_to root_path
     end
 
 end

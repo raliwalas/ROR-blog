@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+
+  # this line makes all of the routes for us
+  # BUT still need to define our root (unless we want default)
+  resources :blog_posts
+
+=begin
+------ resources line replaces all of this -----
   # new needs to be first so it's not processed as a blog post id
   get "/blog_posts/new", to: "blog_posts#new", as: :new_blog_post
 
@@ -22,6 +29,8 @@ Rails.application.routes.draw do
   # to make a create action and send you to elsewhere when you are done
   # also makes authenticity_token to protect the form
   post "/blog_posts", to: "blog_posts#create", as: :blog_posts
+=end
+
 
   # Defines the root path route ("/")
   # index action will display all of the blog posts

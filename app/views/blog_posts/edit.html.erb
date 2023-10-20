@@ -4,5 +4,8 @@
 <%= render partial: "form", locals: {blog_post: @blog_post} %>
 
 <%# adding delete button in the edit page
-    keeping the path ambigious again - rails figures it out %>
-<%= button_to "Delete", @blog_post, method: :delete %>
+    keeping the path ambigious again - rails figures it out 
+    
+    turbo javascript - automatically comes with rails 7 - it will ask for ok/cancel with string
+    See /app/javascript/application.js - there is a line where hotwired/turbo is imported%>
+<%= button_to "Delete", @blog_post, method: :delete, data: {turbo_confirm: "Are you sure?"}%>
