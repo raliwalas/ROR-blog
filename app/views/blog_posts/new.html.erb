@@ -2,6 +2,8 @@
 
 <%= form_with model: @blog_post do |form| %>
     <%# handling cases where the new blog post is filled out incorrectly%>
+    <%# good to have form.object instead of form.blog post in case there are name changes%>
+        <%# you won't have to modify everything in the if statement%>
     <% if form.object.errors.any? %>
         <div>
             <% form.object.errors.full_messages.each do |message| %>
