@@ -3,7 +3,8 @@
 Following How to Build a Blog Tutorial from GoRails YouTube tutorials
 
 
-
+- part 10: using devise library, which handles security features (see in Gemfile)
+https://github.com/heartcombo/devise
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

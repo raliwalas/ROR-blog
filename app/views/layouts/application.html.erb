@@ -11,6 +11,11 @@
   </head>
 
   <body>
+    <%# class notice and alert from command line 'rails g devise:install
+      these are for if a user logs in or fails to log in, there will be a notice%>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>
