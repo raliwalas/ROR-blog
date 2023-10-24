@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # find or create the account with this email address
+# maybe revert or try again with yale email
 user = User.where(email: "rachel.aliwalas52@gmail.com").first_or_initialize
 
 #! allows us to run and rerun without errors
