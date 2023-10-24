@@ -18,8 +18,9 @@
 
     <div>
       <% if user_signed_in? %>
-        <%# edit user registration, destroy, etc all from devise %>
-        <%= link_to "Profile", edit_user_registration_path %>
+        <%# edit user registration, destroy, etc all from devise 
+          - commenting out the link to profile cause we will log in with rails c%>
+        <%#= link_to "Profile", edit_user_registration_path %>
         <%= button_to "Log out", destroy_user_session_path, method: :delete %>
       <%# commenting the else portion out because we removed the registerable line is user.rb model
         - don't want anyone to be able to sign up and log into our blog

@@ -3,6 +3,10 @@
     # and appropriate responses
 class BlogPostsController < ApplicationController 
 
+    # from devise package to authenticate user
+    # only allows users to see index and show if not logged in 
+    before_action :authenticate_user!, except: [:index, :show]
+
 =begin refactoring 1/2
     - set_blog_post allows us reduce the num of lines in code
     - before: the methods show, edit, update, etc all had the same line to set blog action
@@ -10,6 +14,11 @@ class BlogPostsController < ApplicationController
     - could also define before action with except: instead of only
 =end 
     before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
+
+
+    # from devise package to authenticate user
+    before_action :authenticate_user!, except: [:index, :show]
+
 
     def index
         # instance variable to ensure we share with index.html.erb to render
