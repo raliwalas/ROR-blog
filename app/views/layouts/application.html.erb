@@ -18,7 +18,7 @@
 
     <div>
       <% if user_signed_in? %>
-      <%= link_to "New blog post", new_blog_post_path %>
+        <%= link_to "New blog post", new_blog_post_path %>
         <%# edit user registration, destroy, etc all from devise 
           - commenting out the link to profile cause we will log in with rails c%>
         <%#= link_to "Profile", edit_user_registration_path %>
