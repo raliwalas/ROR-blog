@@ -81,5 +81,4 @@ class BlogPostsController < ApplicationController
         #but it's optional depending on application
         redirect_to root_path
     end
-
 end
